@@ -32,7 +32,7 @@
 
 - **装甲板识别跟踪：** 主要分为预处理、灯条检测、装甲板检测、择优、扩展、角度解算这六个部分。预处理部分使用的就算正片叠底+迭代法，灯条检测和装甲板检测基本上都是长宽比等常用的筛选调剂。在非DEBUG_MODE下能够跑满相机帧率（108FPS+），所以就没有再继续加ROI了。
 
-![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/save_pic/装甲板识别展示.gif)
+![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/装甲板识别展示.gif)
 
 <center>
 图1-1 装甲板识别跟踪效果展示  
@@ -42,7 +42,7 @@
 
 - **小陀螺跟踪击打： ** 前期的预测都集中在卡尔曼滤波上，由于上车测试时间较迟，后面发现卡尔曼滤波的效果不能达到想象中的效果，调不明白，又因为马上要比赛了，所以退而求其次做了一个强行的“扩展装甲板”，简单来说就是将解算的装甲板向前调整一点，效果还是非常不错，但是没有自适应，但是打击一级的麦轮小陀螺效果还算比较理想，能够有较高的命中率。
 
-![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/save_pic/反小陀螺功能展示.gif)
+![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/反小陀螺功能展示.gif)
 
 <center>
 图1-2 小陀螺跟踪击打效果展示  
@@ -52,7 +52,7 @@
 
 - **能量机关：** 能量机关依然使用的是一些特征筛选，装甲板长宽比、父轮廓角点数目、父轮廓外接矩形长宽比等。分为了初始化状态、移动状态、击打状态和等待状态。在调的好的情况下，极限是一块待激活装甲板2.5s内可以尝试3次击打。这里只展示小能量机关，大能量机关实物没能成功做出来，并且在适应性训练的时候没有调好，所以只进行理论上的推演。
 
-  ![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/save_pic/能量机关击打展示.gif)
+  ![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/能量机关击打展示.gif)
 
   <center>
   图1-3 能量机关击打效果展示  
@@ -183,7 +183,7 @@
 
 - 灯条变形问题，这是这次对抗赛录制的一段视频，可以看到灯条已经成椭圆状了，已经背离了我们的识别逻辑。由于灯条发光，降低相机的曝光时间能够一定程度上缓解这种现象，但是这样也不是特别理想。
 
-![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/save_pic/灯条变形.gif)
+![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/灯条变形.gif)
 
 <center>
 图4-2 灯条变形问题  
@@ -193,7 +193,7 @@
 
 - 场地灯光误识别问题，这是一直以来都有的问题，是很难避免的，下图为某一场地灯光。其实也能隐隐约约的感觉到，组委会正在努力将大家从传统的OpenCV推向神经网络方向。
 
-![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/save_pic/场地灯光误识别.png)
+![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/场地灯光误识别.png)
 
 <center>
 图4-3 场地灯光误识别问题  
@@ -278,7 +278,7 @@ $$
 
 **能量机关识别逻辑流程图如下图所示**
 
-![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/save_pic/能量机关识别逻辑图.png)
+![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/能量机关识别逻辑图.png)
 
 <center>
 图4-4 能量机关识别逻辑流程图  
@@ -290,7 +290,7 @@ $$
 
 **能量机关击打逻辑流程图：**
 
-​	![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/save_pic/能量机关初始化逻辑流程图.png)
+​	![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/能量机关初始化逻辑流程图.png)
 
 <center>
 图4-5 能量机关初始化逻辑流程图  
@@ -298,7 +298,7 @@ $$
 
 
 
-![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/save_pic/能量机关状态切换击打逻辑流程图.png)
+![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/能量机关状态切换击打逻辑流程图.png)
 
 <center>
 图4-6 能量机关状态切换逻辑流程图  
