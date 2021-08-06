@@ -1,0 +1,33 @@
+%YAML:1.0
+---
+rune_center_gray_thre_min: 91
+rune_center_gray_thre_max: 255
+rune_center_len_min: 21
+rune_center_len_max: 81
+rune_center_light_hw_ratio_min: 89
+rune_center_light_hw_ratio_max: 147
+rune_center_light_area_min: 48
+rune_center_light_area_max: 93
+rune_center_area_ratio_min: 69
+rune_center_area_ratio_max: 89
+rune_center_center_distance_min: 51
+rune_center_center_distance_max: 69
+rune_activating_len_min: 23
+rune_activating_len_max: 47
+rune_activating_light_hw_ratio_min: 142
+rune_activating_light_hw_ratio_max: 244
+rune_activating_light_area_min: 96
+rune_activating_light_area_max: 264
+rune_activating_area_ratio_min: 66
+rune_activating_area_ratio_max: 84
+rune_activating_parent_area_min: 487
+rune_activating_parent_area_max: 1924
+rune_activating_parent_hw_ratio_min: 173
+rune_activating_parent_hw_ratio_max: 270
+rune_compensate_is_ptz_raise: 1
+rune_compensate_pitch_offset: 6
+rune_compensate_is_ptz_right: 1
+rune_compensate_yaw_offset: 0
+rune_time_delay_PTZ_SHIFT_DELAY: 31
+rune_time_delay_SHOOT2HIT_DELAY: 36
+rune_time_delay_TRIG2SHOOT2HIT_DELAY: 43

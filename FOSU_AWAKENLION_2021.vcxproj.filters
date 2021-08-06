@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AngleSolver\bayesEstimateVelocity.cpp">
+      <Filter>源文件\AngleSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="AngleSolver\GravityCompensateResolve.cpp">
+      <Filter>源文件\AngleSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="AngleSolver\PnpSolver.cpp">
+      <Filter>源文件\AngleSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="AngleSolver\PnpSolver.h">
+      <Filter>头文件\AngleSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="AngleSolver\bayesEstimateVelocity.h">
+      <Filter>头文件\AngleSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="AngleSolver\GravityCompensateResolve.h">
+      <Filter>头文件\AngleSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="ArmorDetector\ArmorDetector.cpp">
+      <Filter>源文件\ArmorDetector</Filter>
+    </ClCompile>
+    <ClCompile Include="ArmorDetector\ArmorDetector.h">
+      <Filter>头文件\ArmorDetector</Filter>
+    </ClCompile>
+    <ClCompile Include="ArmorDetector\TargetDetection.cpp">
+      <Filter>源文件\ArmorDetector</Filter>
+    </ClCompile>
+    <ClCompile Include="ArmorDetector\TargetDetection.h">
+      <Filter>头文件\ArmorDetector</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera\MVVideoCapture.cpp">
+      <Filter>源文件\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera\MVVideoCapture.h">
+      <Filter>头文件\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera\CameraApi.h">
+      <Filter>头文件\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui\Gui.cpp">
+      <Filter>源文件\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui\Gui.h">
+      <Filter>头文件\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="Preprocessing\Preprocessing.h">
+      <Filter>头文件\Preprocessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Preprocessing\Preprocessing.cpp">
+      <Filter>源文件\Preprocessing</Filter>
+    </ClCompile>
+    <ClCompile Include="RuneDetector\RuneDetector.cpp">
+      <Filter>源文件\RuneDetector</Filter>
+    </ClCompile>
+    <ClCompile Include="RuneDetector\RuneDetector.h">
+      <Filter>头文件\RuneDetector</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\Serial.cpp">
+      <Filter>源文件\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\Serial.h">
+      <Filter>头文件\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\InfantryInfo.cpp">
+      <Filter>源文件\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera\MVVideoCapture.cpp">
+      <Filter>源文件\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\InfantryInfo.h">
+      <Filter>头文件\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\JudgementInfo.h">
+      <Filter>头文件\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\PackData.cpp">
+      <Filter>源文件\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\PackData.h">
+      <Filter>头文件\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\Protocol.cpp">
+      <Filter>源文件\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial\Protocol.h">
+      <Filter>头文件\Serial</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings\Settings.h">
+      <Filter>头文件\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings\Settings.cpp">
+      <Filter>源文件\Settings</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Serial\InfantryInfo.cpp" />
+    <ClCompile Include="Serial\PackData.cpp" />
+    <ClCompile Include="Serial\Protocol.cpp" />
+    <ClCompile Include="Serial\Serial.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config_file\param_armor.yml">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="config_file\param_rune.yml">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="config_file\param_other.yml">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{2d36ac46-0e91-4c9f-b424-64e89f343ec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{b3638667-6eae-4252-b830-e0e9b4830b0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{39805e1f-470d-4934-af4b-adb48a0c9ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\AngleSolver">
+      <UniqueIdentifier>{8e5b0918-d4a6-4b8f-ad04-5f4dcea7a51d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\AngleSolver">
+      <UniqueIdentifier>{2f09087e-0fc9-4b0f-ae0c-976ff0d5e046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ArmorDetector">
+      <UniqueIdentifier>{ba37701c-299c-4438-8bcf-5d154cfc3bac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ArmorDetector">
+      <UniqueIdentifier>{528bff53-7305-4252-ab08-9b92655b0a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Camera">
+      <UniqueIdentifier>{add7cf85-1dfe-4317-83fc-083356983682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Camera">
+      <UniqueIdentifier>{b44a11b6-0440-478e-84d0-40439621fe7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Gui">
+      <UniqueIdentifier>{4f2e5a7a-36b9-4f3c-8070-e8b17cfc17ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Gui">
+      <UniqueIdentifier>{0e2ff6cd-84c4-4f58-9ce3-7133a929acfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Preprocessing">
+      <UniqueIdentifier>{f41771d4-81e4-4522-b0ef-331651ec3e5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Preprocessing">
+      <UniqueIdentifier>{2837da11-2ded-4e83-a195-f7372e682ced}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\RuneDetector">
+      <UniqueIdentifier>{8548ff22-d291-4048-8aa8-3ab04df81ab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\RuneDetector">
+      <UniqueIdentifier>{67b73790-9417-4214-a58a-f510e8ce6724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Serial">
+      <UniqueIdentifier>{c2e1733a-0000-44fa-9be5-6f96d38b4808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Serial">
+      <UniqueIdentifier>{963f8853-6b20-462f-9ed8-3e4461738541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Settings">
+      <UniqueIdentifier>{10737d2d-d1d5-486b-9390-abb1189dbeac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Settings">
+      <UniqueIdentifier>{35402b90-3e9e-492e-b23d-bf4f9dd593b0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

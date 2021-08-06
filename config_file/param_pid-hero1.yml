@@ -1,0 +1,10 @@
+%YAML:1.0
+---
+pidStruct-pitch_p: 224
+pidStruct-pitch_i: 288
+pidStruct-pitch_d: 45000
+pidStruct-pitch_division: 6
+pidStruct-yaw_p: 311
+pidStruct-yaw_i: 1560
+pidStruct-yaw_d: 50437
+pidStruct-yaw_division: 2

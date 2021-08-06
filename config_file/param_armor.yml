@@ -1,0 +1,30 @@
+%YAML:1.0
+---
+armor_height: 90.
+armor_width: 6.9530625420595988e-310
+small_armor_height: 1.2360182552916467e-315
+small_armor_width: 2.0780914892354505e-317
+gray_thre_min: 38
+gray_thre_max: 255
+gray_max_w: 1
+gray_avg_w: 1
+len_min: 9
+len_max: 456
+light_ratio_min: 2
+light_ratio_max: 10
+light_area_min: 4
+light_area_max: 6068
+area_ratio_min: 3
+area_ratio_max: 100
+area_len_ratio_min: 3
+area_len_ratio_max: 100
+corners_size_min: 2
+slope_offset: 48
+color_th: 0
+delta_height_max: 262
+delta_angle_max: 103
+delta_w_ratio_min: 7
+delta_w_ratio_max: 52
+delta_h_max: 503
+armor_hw_ratio_min: 10
+armor_hw_ratio_max: 48

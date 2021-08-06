@@ -1,0 +1,35 @@
+%YAML:1.0
+---
+main_mode: 0
+enemy_color: 0
+debug-b_show_src: 0
+debug-b_show_bin: 0
+debug-b_show_target: 0
+debug-b_show_armor: 0
+debug-b_show_result: 0
+debug-b_show_fps: 0
+debug-b_save_result: 0
+debug-n_save_result: 3
+debug-b_save_pic: 0
+debug-f_save_pic_inter: 1504
+debug-expore_time: 6522
+debug-b_show_bin_rune: 0
+debug-b_show_td_rune: 0
+debug-b_show_param_rune: 0
+debug-b_show_cp_rune_result: 1
+debug-b_show_cp_rune: 0
+debug-b_show_center_rune: 0
+debug-b_show_center_rune_result: 0
+debug-b_show_center_distance: 0
+debug-b_show_dc: 0
+camera_param-x: 0.
+camera_param-y: 0.
+camera_param-z: 0.
+camera_param-y_offset: 0.
+camera_param-z_ptz2bul: 0.
+camera_param-bullet_speed: 0.
+port_param-dev_name: /dev/ttyUSB0
+port_param-baud_rate: 115200
+port_param-databits: 8
+port_param-stopbits: 1
+port_param-parity: 110
