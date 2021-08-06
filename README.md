@@ -171,7 +171,7 @@
 
 **装甲板识别逻辑流程图**
 
-![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/save_pic/装甲板识别逻辑流程图.png)
+![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/装甲板识别逻辑流程图.png)
 
 <center>
 图4-1 装甲板识别逻辑流程图  
