@@ -40,6 +40,7 @@
 
 
 
+
 - **小陀螺跟踪击打：** 前期的预测都集中在卡尔曼滤波上，由于上车测试时间较迟，后面发现卡尔曼滤波的效果不能达到想象中的效果，调不明白，又因为马上要比赛了，所以退而求其次做了一个强行的“扩展装甲板”，简单来说就是将解算的装甲板向前调整一点，效果还是非常不错，但是没有自适应，但是打击一级的麦轮小陀螺效果还算比较理想，能够有较高的命中率。
 
 ![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/反小陀螺功能展示.gif)
@@ -50,6 +51,7 @@
 
 
 
+
 - **能量机关：** 能量机关依然使用的是一些特征筛选，装甲板长宽比、父轮廓角点数目、父轮廓外接矩形长宽比等。分为了初始化状态、移动状态、击打状态和等待状态。在调的好的情况下，极限是一块待激活装甲板2.5s内可以尝试3次击打。这里只展示小能量机关，大能量机关实物没能成功做出来，并且在适应性训练的时候没有调好，所以只进行理论上的推演。
 
   ![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/能量机关击打展示.gif)
@@ -57,7 +59,7 @@
   <center>
   图1-3 能量机关击打效果展示  
   </center>  
-  
+
   
 
 
@@ -179,6 +181,7 @@
 
 
 
+
 **目前仍存在的问题**
 
 - 灯条变形问题，这是这次对抗赛录制的一段视频，可以看到灯条已经成椭圆状了，已经背离了我们的识别逻辑。由于灯条发光，降低相机的曝光时间能够一定程度上缓解这种现象，但是这样也不是特别理想。
@@ -188,6 +191,7 @@
 <center>
 图4-2 灯条变形问题  
 </center>  
+
 
 
 
@@ -201,6 +205,7 @@
 
 
 
+
 #### 能量机关：
 
 （大能量机关推导中，运用了公式，由于没有插件GitHub无法自动渲染mathJax”，所以这一部分建议下载“[大能量机关推导.pdf](大能量机关推导.pdf)”查阅，或打开“[大能量机关推导.png](save_pic/大能量机关推导.png)”查看，或者下载到本地使用软件进行渲染）
@@ -209,45 +214,49 @@
 
 其实能量机关的主要问题就算在T秒内，能量机关转过的角度。（T：发弹延时+弹丸滞空时间+能量机关亮起时间+云台移动时间等）
 
-小能量机关转速固定为![](https://www.zhihu.com/equation?tex=10RPM)，![](https://www.zhihu.com/equation?tex=T)秒内转动的角度即为![](https://www.zhihu.com/equation?tex=60° * T)。
+小能量机关转速固定为![](https://www.zhihu.com/equation?tex=%5C%2010RPM%20)，T秒内转动的角度即为![](https://www.zhihu.com/equation?tex=%5C%2060%C2%B0%20%2A%20T%20)。
 
-大能量机关转速按照三角函数呈周期变化。速度目标函数为：![](https://www.zhihu.com/equation?tex=spd = 0.785 ∗ sin (1.884 ∗ t) %2B 1.305)。其中![](https://www.zhihu.com/equation?tex=spd)单位为![](https://www.zhihu.com/equation?tex=rad/s)，![](https://www.zhihu.com/equation?tex=t)的单位为![](https://www.zhihu.com/equation?tex=s)。
+大能量机关转速按照三角函数呈周期变化。速度目标函数为：![](https://www.zhihu.com/equation?tex=%5C%20spd%20%3D%200.785%20%E2%88%97%20sin%20%281.884%20%E2%88%97%20t%29%20%2B%201.305)，其中 ![](https://www.zhihu.com/equation?tex=%5C%20spd%20)的单位为![](https://www.zhihu.com/equation?tex=%5C%20rad/s%20)，![](https://www.zhihu.com/equation?tex=%5C%20t%20)的单位为![](https://www.zhihu.com/equation?tex=%5C%20s%20)。
 
-假设速度目标函数为：![](https://www.zhihu.com/equation?tex=spd = Asin(\omega x %2B \varphi) %2B C)，其中![](https://www.zhihu.com/equation?tex=spd)单位为![](https://www.zhihu.com/equation?tex=rad/s)，![](https://www.zhihu.com/equation?tex=t)的单位为![](https://www.zhihu.com/equation?tex=s)。
+假设速度目标函数为：![](https://www.zhihu.com/equation?tex=%5C%20spd%20%3D%20Asin%28%5Comega%20x%20%2B%20%5Cvarphi%29%20%2B%20C)，其中 ![](https://www.zhihu.com/equation?tex=%5C%20spd%20)的单位为![](https://www.zhihu.com/equation?tex=%5C%20rad/s%20)，![](https://www.zhihu.com/equation?tex=%5C%20t%20)的单位为![](https://www.zhihu.com/equation?tex=%5C%20s%20)。
 
 进行如下公式推导：
 
-假设初始时间为![](https://www.zhihu.com/equation?tex=t_1)，末尾时间为![](https://www.zhihu.com/equation?tex=t_2)对速度目标函数![](https://www.zhihu.com/equation?tex=spd = Asin(\omega x %2B \varphi) %2B C)行积分，得![](https://www.zhihu.com/equation?tex=t_1)到![](https://www.zhihu.com/equation?tex=t_2)能量机关总共转过的角度差![](https://www.zhihu.com/equation?tex=\Delta \theta)为：
+假设初始时间为![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)，末尾时间为![](https://www.zhihu.com/equation?tex=%5C%20t_2%20)，对速度目标函数![](https://www.zhihu.com/equation?tex=%5C%20spd%20%3D%20Asin%28%5Comega%20x%20%2B%20%5Cvarphi%29%20%2B%20C)进行积分，得![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)到![](https://www.zhihu.com/equation?tex=%5C%20t_2%20)能量机关总共转过的角度差![](https://www.zhihu.com/equation?tex=%5C%20%5CDelta%20%5Ctheta)为：
 
-![](https://www.zhihu.com/equation?tex=\Delta \theta=\int_{t_{1}}^{t_{2}} spd =-\frac{A}{\omega}\left[\cos \left(\omega t_{2}%2B\varphi\right)-\cos \left(\omega t_{1}%2B\varphi\right)\right]%2BC\left(t_{2}-t_{1}\right)\\\qquad\quad\qquad\qquad\qquad=\frac{2 A}{\omega}\left[\sin \frac{\omega\left(t_{1}%2Bt_{2}\right)%2B2 \varphi}{2} \sin \frac{\omega\left(t_{2}-t_{1}\right)}{2}\right]%2BC\left(t_{2}-t_{1}\right))
+![](https://www.zhihu.com/equation?tex=%0A%5Cbegin%7Baligned%7D%0A%5CDelta%20%5Ctheta%3D%5Cint_%7Bt_%7B1%7D%7D%5E%7Bt_%7B2%7D%7D%20s%20p%20d%20%26%3D-%5Cfrac%7BA%7D%7B%5Comega%7D%5Cleft%5B%5Ccos%20%5Cleft%28%5Comega%20t_%7B2%7D%2B%5Cvarphi%5Cright%29-%5Ccos%20%5Cleft%28%5Comega%20t_%7B1%7D%2B%5Cvarphi%5Cright%29%5Cright%5D%2BC%5Cleft%28t_%7B2%7D-t_%7B1%7D%5Cright%29%20%5C%5C%0A%26%3D%5Cfrac%7B2%20A%7D%7B%5Comega%7D%5Cleft%5B%5Csin%20%5Cfrac%7B%5Comega%5Cleft%28t_%7B1%7D%2Bt_%7B2%7D%5Cright%29%2B2%20%5Cvarphi%7D%7B2%7D%20%5Csin%20%5Cfrac%7B%5Comega%5Cleft%28t_%7B2%7D-t_%7B1%7D%5Cright%29%7D%7B2%7D%5Cright%5D%2BC%5Cleft%28t_%7B2%7D-t_%7B1%7D%5Cright%29%0A%5Cend%7Baligned%7D%0A)
 
-设![](https://www.zhihu.com/equation?tex=\Delta t = t_2 - t_1)，得：
+设![](https://www.zhihu.com/equation?tex=%5C%20%5CDelta%20t%20%3D%20t_2%20-%20t_1%20)，得：
 
-![](https://www.zhihu.com/equation?tex=\Delta \theta=\frac{2 A}{\omega}\left[\sin \frac{\omega\left(\Delta t%2B2 t_{1}\right)%2B2 \varphi}{2} \sin \frac{\omega \Delta t}{2}\right]%2BC \Delta t)
-
-即：
-
-![](https://www.zhihu.com/equation?tex=\frac{\omega}{2 A}(\Delta \theta-C \Delta t)=\sin \left[\frac{\omega}{2}\left(\Delta t%2B2 t_{1}\right)%2B\varphi\right] \sin \frac{\omega \Delta t}{2})
+![](https://www.zhihu.com/equation?tex=%0A%5CDelta%20%5Ctheta%3D%5Cfrac%7B2%20A%7D%7B%5Comega%7D%5Cleft%5B%5Csin%20%5Cfrac%7B%5Comega%5Cleft%28%5CDelta%20t%2B2%20t_%7B1%7D%5Cright%29%2B2%20%5Cvarphi%7D%7B2%7D%20%5Csin%20%5Cfrac%7B%5Comega%20%5CDelta%20t%7D%7B2%7D%5Cright%5D%2BC%20%5CDelta%20t%0A)
 
 即：
 
-![](https://www.zhihu.com/equation?tex=\arcsin \left[\frac{\omega(\Delta \theta-C \Delta t)}{2 A \sin \frac{\omega \Delta t}{2}}\right]=\frac{\omega}{2}\left(\Delta t%2B2 t_{1}\right)%2B\varphi)
+![](https://www.zhihu.com/equation?tex=%0A%5Cfrac%7B%5Comega%7D%7B2%20A%7D%28%5CDelta%20%5Ctheta-C%20%5CDelta%20t%29%3D%5Csin%20%5Cleft%5B%5Cfrac%7B%5Comega%7D%7B2%7D%5Cleft%28%5CDelta%20t%2B2%20t_%7B1%7D%5Cright%29%2B%5Cvarphi%5Cright%5D%20%5Csin%20%5Cfrac%7B%5Comega%20%5CDelta%20t%7D%7B2%7D%20%5C%5C%0A)
 
-化简出![](https://www.zhihu.com/equation?tex=t_1)，得：
+即：
 
-![](https://www.zhihu.com/equation?tex=t_{1}=\frac{1}{\omega}\left[\arcsin \frac{\omega(\Delta \theta-C \Delta t)}{2 A \sin \frac{\omega \Delta t}{2}}\right]-\varphi-\frac{\Delta t}{2})
+![](https://www.zhihu.com/equation?tex=%0A%5Carcsin%20%5Cleft%5B%5Cfrac%7B%5Comega%28%5CDelta%20%5Ctheta-C%20%5CDelta%20t%29%7D%7B2%20A%20%5Csin%20%5Cfrac%7B%5Comega%20%5CDelta%20t%7D%7B2%7D%7D%5Cright%5D%3D%5Cfrac%7B%5Comega%7D%7B2%7D%5Cleft%28%5CDelta%20t%2B2%20t_%7B1%7D%5Cright%29%2B%5Cvarphi%0A)
 
-由于官方给定的速度目标函数为：![](https://www.zhihu.com/equation?tex=spd = 0.785 ∗ sin (1.884 ∗ t) %2B 1.305)，代入推导公式，得：
+化简出![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)，得：
 
-![](https://www.zhihu.com/equation?tex=t_{1}=\frac{1}{1.884}\left[\arcsin \frac{1.884 \times(\Delta \theta-1.305 \times \Delta t)}{1.57 \sin (0.942 \Delta t)}\right]-\frac{\Delta t}{2})
+![](https://www.zhihu.com/equation?tex=%0At_%7B1%7D%3D%5Cfrac%7B1%7D%7B%5Comega%7D%5Cleft%5B%5Carcsin%20%5Cfrac%7B%5Comega%28%5CDelta%20%5Ctheta-C%20%5CDelta%20t%29%7D%7B2%20A%20%5Csin%20%5Cfrac%7B%5Comega%20%5CDelta%20t%7D%7B2%7D%7D%5Cright%5D-%5Cvarphi-%5Cfrac%7B%5CDelta%20t%7D%7B2%7D%0A)
 
-![](https://www.zhihu.com/equation?tex=\Delta \theta=\frac{1.57}{1.884}\left[\sin \left(0.942 \Delta t%2B1.884 t_{1}\right) \sin (0.942 \Delta t)\right]%2B1.305 \Delta t)
+由于官方给定的速度目标函数为：![](https://www.zhihu.com/equation?tex=%5C%20spd%20%3D%200.785%20%E2%88%97%20sin%20%281.884%20%E2%88%97%20t%29%20%2B%201.305)，代入推导公式，得：
 
-因此，仅需知道角度差![](https://www.zhihu.com/equation?tex=\Delta\theta)和时间差![](https://www.zhihu.com/equation?tex=\Delta t)就可以得到![](https://www.zhihu.com/equation?tex=t_1)，即得到![](https://www.zhihu.com/equation?tex=t_1)在能量机关转动周期中真正对应的时间，记为![](https://www.zhihu.com/equation?tex=t_1)(周期)，而非程序计时得到的![](https://www.zhihu.com/equation?tex=t_1)，记为$\ t_1 $(程序计时器)。![](https://www.zhihu.com/equation?tex=t_1)(周期)固定不变，在某一时刻，此时计时为![](https://www.zhihu.com/equation?tex=t_2)(程序计时器)，再加上初始程序计时的![](https://www.zhihu.com/equation?tex=t_1)(程序计时器)，得到两者的时间差![](https://www.zhihu.com/equation?tex=\Delta t)，通过![](https://www.zhihu.com/equation?tex=\Delta t%2Bt_1)(周期)，就得到当前时刻对应于周期中的时间，记为![](https://www.zhihu.com/equation?tex=t_2)(周期)。通过![](https://www.zhihu.com/equation?tex=t_2)(周期)代表![](https://www.zhihu.com/equation?tex=t_1)(周期)，时间间隔为代![](https://www.zhihu.com/equation?tex=T)表，![](https://www.zhihu.com/equation?tex=\Delta t)代入公式：
+![](https://www.zhihu.com/equation?tex=%0At_%7B1%7D%3D%5Cfrac%7B1%7D%7B1.884%7D%5Cleft%5B%5Carcsin%20%5Cfrac%7B1.884%20%5Ctimes%28%5CDelta%20%5Ctheta-1.305%20%5Ctimes%20%5CDelta%20t%29%7D%7B1.57%20%5Csin%20%280.942%20%5CDelta%20t%29%7D%5Cright%5D-%5Cfrac%7B%5CDelta%20t%7D%7B2%7D%0A)
 
-![](https://www.zhihu.com/equation?tex=\Delta \theta=\frac{1.57}{1.884}\left[\sin \left(0.942 \Delta t%2B1.884 t_{1}\right) \sin (0.942 \Delta t)\right]%2B1.305 \Delta t)
+
+
+![](https://www.zhihu.com/equation?tex=%0A%5CDelta%20%5Ctheta%3D%5Cfrac%7B1.57%7D%7B1.884%7D%5Cleft%5B%5Csin%20%5Cleft%280.942%20%5CDelta%20t%2B1.884%20t_%7B1%7D%5Cright%29%20%5Csin%20%280.942%20%5CDelta%20t%29%5Cright%5D%2B1.305%20%5CDelta%20t%0A)
+
+
+因此，仅需知道角度差![](https://www.zhihu.com/equation?tex=%5C%20%5CDelta%5Ctheta%20)和时间差![](https://www.zhihu.com/equation?tex=%5C%20%5CDelta%20t%20)，就可以得到![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)，即得到![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)在能量机关转动周期中真正对应的时间，记为![](https://www.zhihu.com/equation?tex=%5C%20t_1)(周期)，而非程序计时得到的![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)，记为![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)(程序计时器)。![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)(周期)固定不变，在某一时刻，此时计时为![](https://www.zhihu.com/equation?tex=%5C%20t_2)(程序计时器)，再加上初始程序计时的![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)(程序计时器)，得到两者的时间差![](https://www.zhihu.com/equation?tex=%5C%20%5CDelta%20t%20)，通过![](https://www.zhihu.com/equation?tex=%5C%20%5CDelta%20t%20%2B%20t_1)(周期)，就得到当前时刻对应于周期中的时间，记为![](https://www.zhihu.com/equation?tex=%5C%20t_2%20)(周期)。通过![](https://www.zhihu.com/equation?tex=%5C%20t_2)(周期)代表![](https://www.zhihu.com/equation?tex=%5C%20t_1%20)(周期)，时间间隔为![](https://www.zhihu.com/equation?tex=%5C%20T%20)代表![](https://www.zhihu.com/equation?tex=%5C%20%5CDelta%20t%20)，代入公式：
+
+![](https://www.zhihu.com/equation?tex=%0A%5CDelta%20%5Ctheta%3D%5Cfrac%7B1.57%7D%7B1.884%7D%5Cleft%5B%5Csin%20%5Cleft%280.942%20%5CDelta%20t%2B1.884%20t_%7B1%7D%5Cright%29%20%5Csin%20%280.942%20%5CDelta%20t%29%5Cright%5D%2B1.305%20%5CDelta%20t%0A)
 
 即得到当前时刻起，经过时间间隔T后，大能量机关转动过的角度。
+
 
 
 **能量机关识别思路：**
@@ -281,6 +290,7 @@
 
 
 
+
 **能量机关击打逻辑流程图：**
 
 ![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/能量机关初始化逻辑流程图.png)
@@ -291,11 +301,13 @@
 
 
 
+
 ![](https://github.com/Ash1104/RoboMaster2021-FOSU-AWAKENLION-OpenSource/blob/master/save_pic/能量机关状态切换击打逻辑流程图.png)
 
 <center>
 图4-6 能量机关状态切换逻辑流程图  
 </center>  
+
 
 ## 5.代码规范
 
