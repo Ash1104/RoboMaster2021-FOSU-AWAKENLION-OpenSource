@@ -209,52 +209,45 @@
 
 其实能量机关的主要问题就算在T秒内，能量机关转过的角度。（T：发弹延时+弹丸滞空时间+能量机关亮起时间+云台移动时间等）
 
-小能量机关转速固定为$\ 10RPM $，T秒内转动的角度即为$\ 60° * T $。
+小能量机关转速固定为![](https://www.zhihu.com/equation?tex=10RPM)，![](https://www.zhihu.com/equation?tex=T)秒内转动的角度即为![](https://www.zhihu.com/equation?tex=60° * T)。
 
-大能量机关转速按照三角函数呈周期变化。速度目标函数为：$\ spd = 0.785 ∗ sin (1.884 ∗ t) + 1.305$，其中 $\ spd $的单位为$\ rad/s $，$\ t $的单位为$\ s $。
+大能量机关转速按照三角函数呈周期变化。速度目标函数为：![](https://www.zhihu.com/equation?tex=spd = 0.785 ∗ sin (1.884 ∗ t) %2B 1.305)。其中![](https://www.zhihu.com/equation?tex=spd)单位为![](https://www.zhihu.com/equation?tex=rad/s)，![](https://www.zhihu.com/equation?tex=t)的单位为![](https://www.zhihu.com/equation?tex=s)。
 
-假设速度目标函数为：$\ spd = Asin(\omega x + \varphi) + C$，其中 $\ spd $的单位为$\ rad/s $，$\ t $的单位为$\ s $。
+假设速度目标函数为：![](https://www.zhihu.com/equation?tex=spd = Asin(\omega x %2B \varphi) %2B C)，其中![](https://www.zhihu.com/equation?tex=spd)单位为![](https://www.zhihu.com/equation?tex=rad/s)，![](https://www.zhihu.com/equation?tex=t)的单位为![](https://www.zhihu.com/equation?tex=s)。
 
 进行如下公式推导：
 
-假设初始时间为$\ t_1 $，末尾时间为$\ t_2 $，对速度目标函数$\ spd = Asin(\omega x + \varphi) + C$进行积分，得$\ t_1 $到$\ t_2 $能量机关总共转过的角度差$\ \Delta \theta$为：
-$$
-\begin{aligned}
-\Delta \theta=\int_{t_{1}}^{t_{2}} s p d &=-\frac{A}{\omega}\left[\cos \left(\omega t_{2}+\varphi\right)-\cos \left(\omega t_{1}+\varphi\right)\right]+C\left(t_{2}-t_{1}\right) \\
-&=\frac{2 A}{\omega}\left[\sin \frac{\omega\left(t_{1}+t_{2}\right)+2 \varphi}{2} \sin \frac{\omega\left(t_{2}-t_{1}\right)}{2}\right]+C\left(t_{2}-t_{1}\right)
-\end{aligned}
-$$
-设$\ \Delta t = t_2 - t_1 $，得：
-$$
-\Delta \theta=\frac{2 A}{\omega}\left[\sin \frac{\omega\left(\Delta t+2 t_{1}\right)+2 \varphi}{2} \sin \frac{\omega \Delta t}{2}\right]+C \Delta t
-$$
-即：
-$$
-\frac{\omega}{2 A}(\Delta \theta-C \Delta t)=\sin \left[\frac{\omega}{2}\left(\Delta t+2 t_{1}\right)+\varphi\right] \sin \frac{\omega \Delta t}{2} \\
-$$
-即：
-$$
-\arcsin \left[\frac{\omega(\Delta \theta-C \Delta t)}{2 A \sin \frac{\omega \Delta t}{2}}\right]=\frac{\omega}{2}\left(\Delta t+2 t_{1}\right)+\varphi
-$$
-化简出$\ t_1 $，得：
-$$
-t_{1}=\frac{1}{\omega}\left[\arcsin \frac{\omega(\Delta \theta-C \Delta t)}{2 A \sin \frac{\omega \Delta t}{2}}\right]-\varphi-\frac{\Delta t}{2}
-$$
-由于官方给定的速度目标函数为：$\ spd = 0.785 ∗ sin (1.884 ∗ t) + 1.305$，代入推导公式，得：
-$$
-t_{1}=\frac{1}{1.884}\left[\arcsin \frac{1.884 \times(\Delta \theta-1.305 \times \Delta t)}{1.57 \sin (0.942 \Delta t)}\right]-\frac{\Delta t}{2}
-$$
+假设初始时间为![](https://www.zhihu.com/equation?tex=t_1)，末尾时间为![](https://www.zhihu.com/equation?tex=t_2)对速度目标函数![](https://www.zhihu.com/equation?tex=spd = Asin(\omega x %2B \varphi) %2B C)行积分，得![](https://www.zhihu.com/equation?tex=t_1)到![](https://www.zhihu.com/equation?tex=t_2)能量机关总共转过的角度差![](https://www.zhihu.com/equation?tex=\Delta \theta)为：
 
-$$
-\Delta \theta=\frac{1.57}{1.884}\left[\sin \left(0.942 \Delta t+1.884 t_{1}\right) \sin (0.942 \Delta t)\right]+1.305 \Delta t
-$$
+![](https://www.zhihu.com/equation?tex=\Delta \theta=\int_{t_{1}}^{t_{2}} spd =-\frac{A}{\omega}\left[\cos \left(\omega t_{2}%2B\varphi\right)-\cos \left(\omega t_{1}%2B\varphi\right)\right]%2BC\left(t_{2}-t_{1}\right)\\\qquad\quad\qquad\qquad\qquad=\frac{2 A}{\omega}\left[\sin \frac{\omega\left(t_{1}%2Bt_{2}\right)%2B2 \varphi}{2} \sin \frac{\omega\left(t_{2}-t_{1}\right)}{2}\right]%2BC\left(t_{2}-t_{1}\right))
 
-因此，仅需知道角度差$\ \Delta\theta $和时间差$\ \Delta t $，就可以得到$\ t_1 $，即得到$\ t_1 $在能量机关转动周期中真正对应的时间，记为$\ t_1$(周期)，而非程序计时得到的$\ t_1 $，记为$\ t_1 $(程序计时器)。$\ t_1 $(周期)固定不变，在某一时刻，此时计时为$\ t_2$(程序计时器)，再加上初始程序计时的$\ t_1 $(程序计时器)，得到两者的时间差$\ \Delta t $，通过$\ \Delta t + t_1$(周期)，就得到当前时刻对应于周期中的时间，记为$\ t_2 $(周期)。通过$\ t_2$(周期)代表$\ t_1 $(周期)，时间间隔为$\ T $代表$\ \Delta t $，代入公式：
-$$
-\Delta \theta=\frac{1.57}{1.884}\left[\sin \left(0.942 \Delta t+1.884 t_{1}\right) \sin (0.942 \Delta t)\right]+1.305 \Delta t
-$$
+设![](https://www.zhihu.com/equation?tex=\Delta t = t_2 - t_1)，得：
+
+![](https://www.zhihu.com/equation?tex=\Delta \theta=\frac{2 A}{\omega}\left[\sin \frac{\omega\left(\Delta t%2B2 t_{1}\right)%2B2 \varphi}{2} \sin \frac{\omega \Delta t}{2}\right]%2BC \Delta t)
+
+即：
+
+![](https://www.zhihu.com/equation?tex=\frac{\omega}{2 A}(\Delta \theta-C \Delta t)=\sin \left[\frac{\omega}{2}\left(\Delta t%2B2 t_{1}\right)%2B\varphi\right] \sin \frac{\omega \Delta t}{2})
+
+即：
+
+![](https://www.zhihu.com/equation?tex=\arcsin \left[\frac{\omega(\Delta \theta-C \Delta t)}{2 A \sin \frac{\omega \Delta t}{2}}\right]=\frac{\omega}{2}\left(\Delta t%2B2 t_{1}\right)%2B\varphi)
+
+化简出![](https://www.zhihu.com/equation?tex=t_1)，得：
+
+![](https://www.zhihu.com/equation?tex=t_{1}=\frac{1}{\omega}\left[\arcsin \frac{\omega(\Delta \theta-C \Delta t)}{2 A \sin \frac{\omega \Delta t}{2}}\right]-\varphi-\frac{\Delta t}{2})
+
+由于官方给定的速度目标函数为：![](https://www.zhihu.com/equation?tex=spd = 0.785 ∗ sin (1.884 ∗ t) %2B 1.305)，代入推导公式，得：
+
+![](https://www.zhihu.com/equation?tex=t_{1}=\frac{1}{1.884}\left[\arcsin \frac{1.884 \times(\Delta \theta-1.305 \times \Delta t)}{1.57 \sin (0.942 \Delta t)}\right]-\frac{\Delta t}{2})
+
+![](https://www.zhihu.com/equation?tex=\Delta \theta=\frac{1.57}{1.884}\left[\sin \left(0.942 \Delta t%2B1.884 t_{1}\right) \sin (0.942 \Delta t)\right]%2B1.305 \Delta t)
+
+因此，仅需知道角度差![](https://www.zhihu.com/equation?tex=\Delta\theta)和时间差![](https://www.zhihu.com/equation?tex=\Delta t)就可以得到![](https://www.zhihu.com/equation?tex=t_1)，即得到![](https://www.zhihu.com/equation?tex=t_1)在能量机关转动周期中真正对应的时间，记为![](https://www.zhihu.com/equation?tex=t_1)(周期)，而非程序计时得到的![](https://www.zhihu.com/equation?tex=t_1)，记为$\ t_1 $(程序计时器)。![](https://www.zhihu.com/equation?tex=t_1)(周期)固定不变，在某一时刻，此时计时为![](https://www.zhihu.com/equation?tex=t_2)(程序计时器)，再加上初始程序计时的![](https://www.zhihu.com/equation?tex=t_1)(程序计时器)，得到两者的时间差![](https://www.zhihu.com/equation?tex=\Delta t)，通过![](https://www.zhihu.com/equation?tex=\Delta t%2Bt_1)(周期)，就得到当前时刻对应于周期中的时间，记为![](https://www.zhihu.com/equation?tex=t_2)(周期)。通过![](https://www.zhihu.com/equation?tex=t_2)(周期)代表![](https://www.zhihu.com/equation?tex=t_1)(周期)，时间间隔为代![](https://www.zhihu.com/equation?tex=T)表，![](https://www.zhihu.com/equation?tex=\Delta t)代入公式：
+
+![](https://www.zhihu.com/equation?tex=\Delta \theta=\frac{1.57}{1.884}\left[\sin \left(0.942 \Delta t%2B1.884 t_{1}\right) \sin (0.942 \Delta t)\right]%2B1.305 \Delta t)
+
 即得到当前时刻起，经过时间间隔T后，大能量机关转动过的角度。
-
 
 
 **能量机关识别思路：**
