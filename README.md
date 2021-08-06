@@ -113,16 +113,16 @@
 │      RuneDetector.h                  // 能量机关检测头文件
 ├─save_pic                             // 图像保存路径
 ├─save_video                           // 视频保存路径
-├─Serial                               // 通信协议相关
-│      InfantryInfo.cpp                // 通信协议相关
-│      InfantryInfo.h                  // 通信协议相关
-│      JudgementInfo.h                 // 通信协议相关
-│      PackData.cpp                    // 通信协议相关
-│      PackData.h                      // 通信协议相关
-│      Protocol.cpp                    // 通信协议相关
-│      Protocol.h                      // 通信协议相关
-│      Serial.cpp                      // 通信协议相关
-│      Serial.h                        // 通信协议相关
+├─Serial                               // 通信相关
+│      InfantryInfo.cpp                // 通信相关
+│      InfantryInfo.h                  // 通信相关
+│      JudgementInfo.h                 // 通信相关
+│      PackData.cpp                    // 通信相关
+│      PackData.h                      // 通信相关
+│      Protocol.cpp                    // 通信相关
+│      Protocol.h                      // 通信相关
+│      Serial.cpp                      // 通信相关
+│      Serial.h                        // 通信相关
 ├─Settings                             // 主要设置相关
 │      Settings.cpp                    // 主要设置源文件
 │      Settings.h                      // 主要设置头文件
